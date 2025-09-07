@@ -4,18 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        dp = list(nums)
-        dp[0] = 0
         n = len(nums)
+        dp = [0] * n
 
         for i in range(1, n):
-            cost = []
+            jumps = []
             for j in range(0, i):
                 if j + nums[j] >= i:
-                    cost.append(dp[j] + 1)
-            dp[i] = min(cost)
+                    jumps.append(dp[j] + 1)
+            dp[i] = min(jumps)
 
-        return dp[n - 1]
+        return dp[-1]
 
 
 solution = Solution()

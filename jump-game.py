@@ -1,0 +1,36 @@
+class Solution(object):
+    def jump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        dp = list(nums)
+        dp[0] = 0
+        n = len(nums)
+
+        for i in range(1, n):
+            cost = []
+            for j in range(0, i):
+                if j + nums[j] >= i:
+                    cost.append(dp[j] + 1)
+            dp[i] = min(cost)
+
+        return dp[n - 1]
+
+
+solution = Solution()
+
+test1 = [2,3,1,1,4]
+test2 = [2,3,0,1,4]
+
+result1 = 2
+result2 = 2
+
+tests = [[test1, result1], [test2, result2]]
+
+for test in tests:
+    result = solution.jump(test[0])
+    if result != test[1]:
+        print(f"failed {test} result {result}")
+    else:
+        print(f"passed {test} result {result}")

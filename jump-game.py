@@ -8,40 +8,44 @@ class Solution(object):
         if n == 1:
             return 0
 
-        jumps = 0
+        i = jumps = index_range = max_value = 0
 
-        i = 0
         while i < n:
-            # if current position gets us to the end
-            if i + nums[i] >= n - 1:
+            max_value = max(i + nums[i], max_value)
+            if max_value >= n - 1:
                 return jumps + 1
-
-            bucket = []
-            for j in range(i + 1, i + nums[i] + 1):
-                if j >= n:
-                    break
-                bucket.append((j + nums[j], j))
-
-            best = max(bucket)
-            if best[1] >= n - 1:
-                return jumps + 1
-            i = best[1]
-            jumps += 1
+            if i >= index_range:
+                jumps += 1
+                index_range = max_value
+            i += 1
 
         return jumps
-
 
 solution = Solution()
 
 test1 = [2,3,1,1,4]
 test2 = [2,3,0,1,4]
 test3 = [0]
+test4 = [2,1]
+test5 = [2,3,1]
+test6 = [1,2,1,1,1]
+test7 = [1,2,3]
 
 result1 = 2
 result2 = 2
 result3 = 0
+result4 = 1
+result5 = 1
+result6 = 3
+result7 = 2
 
-tests = [[test1, result1], [test2, result2], [test3, result3]]
+tests = [[test1, result1],
+         [test2, result2],
+         [test3, result3],
+         [test4, result4],
+         [test5, result5],
+         [test6, result6],
+         [test7, result7]]
 
 for test in tests:
     result = solution.jump(test[0])
@@ -49,11 +53,3 @@ for test in tests:
         print(f"failed {test} result {result}")
     else:
         print(f"passed {test} result {result}")
-
-print(solution.jump([1]) == 0)
-print(solution.jump([2,1]) == 1)
-print(solution.jump([2,3,1]) == 1)
-#print(solution.jump([1,1,1,1]))
-#print(solution.jump([2,3,1,1,4]))
-#print(solution.jump([1,2,3]) == 2)
-print(solution.jump([1,2,1,1,1]))

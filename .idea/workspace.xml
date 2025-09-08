@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="722561da-3e93-42df-a26f-dccf97e66cd1" name="Changes" comment="check point, working on optimized version">
+    <list default="true" id="722561da-3e93-42df-a26f-dccf97e66cd1" name="Changes" comment="Working optimized version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jump-game.py" beforeDir="false" afterPath="$PROJECT_DIR$/jump-game.py" afterDir="false" />
     </list>
@@ -82,13 +82,22 @@
       <option name="project" value="LOCAL" />
       <updated>1757295784460</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Working optimized version">
+      <option name="closed" value="true" />
+      <created>1757298769599</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757298769599</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial working version" />
     <MESSAGE value="minor cleanup" />
     <MESSAGE value="check point, working on optimized version" />
-    <option name="LAST_COMMIT_MESSAGE" value="check point, working on optimized version" />
+    <MESSAGE value="Working optimized version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working optimized version" />
   </component>
 </project>

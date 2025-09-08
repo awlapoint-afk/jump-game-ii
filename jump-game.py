@@ -11,24 +11,19 @@ class Solution(object):
         jumps = 0
 
         i = 0
-        while i <= n - 2:
+        while i < n:
             # if current position gets us to the end
             if i + nums[i] >= n - 1:
                 return jumps + 1
 
             bucket = []
-            for j in range(i + 1, nums[i] + 1):
-                if j + 1 >= n - 1:
-                    return jumps + 2
+            for j in range(i + 1, i + nums[i] + 1):
+                if j >= n:
+                    break
                 bucket.append((j + nums[j], j))
 
-            if not bucket:
-                i += 1
-                jumps += 1
-                continue
-
             best = max(bucket)
-            if i + best[1] >= n - 1:
+            if best[1] >= n - 1:
                 return jumps + 1
             i = best[1]
             jumps += 1
@@ -55,10 +50,10 @@ for test in tests:
     else:
         print(f"passed {test} result {result}")
 
-#print(solution.jump([1]))
-#print(solution.jump([2,1]))
-#print(solution.jump([2,3,1]))
+print(solution.jump([1]) == 0)
+print(solution.jump([2,1]) == 1)
+print(solution.jump([2,3,1]) == 1)
 #print(solution.jump([1,1,1,1]))
 #print(solution.jump([2,3,1,1,4]))
-print(solution.jump([1,2,3]))
+#print(solution.jump([1,2,3]) == 2)
 print(solution.jump([1,2,1,1,1]))
